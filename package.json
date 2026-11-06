@@ -1,0 +1,7 @@
+{
+  "name": "spain-rent-vs-buy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rent vs buy in Spain, province by province, with official rent and appraisal data. Runs in the browser.",
+  "scripts": { "test": "node --test core.test.js", "start": "python3 -m http.server 8000" }
+}
