@@ -124,4 +124,4 @@ svg.chart .axis{stroke:#e4e2da}
 .src li{margin-bottom:6px}
 .takeaway{margin:12px 2px 0;font-weight:600}
 @media (max-width:900px){.params{grid-template-columns:1fr}}
-@media (max-width:480px){svg.chart text{font-size:24px}.kpi b{font-size:19px}}
+@media (max-width:480px){svg.chart text{font-size:19px}.kpi b{font-size:19px}}
