@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spain: Rent vs Buy by Province</title>
+<meta name="description" content="Rent or buy in Spain, province by province, using official rent and appraisal data. See the break-even year, the net worth of each side over time, and how your province ranks. Runs in the browser, no install.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c2127'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,-apple-system,Segoe UI,Roboto,sans-serif' font-size='15' font-weight='700' letter-spacing='-0.5' fill='%23fff'%3EDC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1c2127"/><text x="16" y="22" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="15" font-weight="700" letter-spacing="-0.5" fill="#fff">DC</text></svg>
+    <div>
+      <h1>Spain: Rent vs Buy by Province</h1>
+      <p>Same cash, two paths. Where does buying catch up?</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button class="btn" id="reset" title="Back to the default setup">Reset</button>
+    <button class="btn" id="share" title="Copy a link to this exact setup">Copy link</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="stage card" aria-label="Result">
+    <div class="chart-title"><h3>Net worth if you sell (or stop renting) after each year</h3>
+      <div class="legend"><span><i class="sw" style="background:#0f766e"></i>Buy</span><span><i class="sw" style="background:#e8590c"></i>Rent and invest</span></div>
+    </div>
+    <svg class="chart" id="chart" viewBox="0 0 720 300" role="img" aria-label="Net worth of buying and renting over time"></svg>
+    <p class="verdict" id="verdict" aria-live="polite"></p>
+  </section>
+
+  <aside class="side">
+    <section class="card">
+      <div class="pick"><label for="prov">Province</label><select id="prov"></select></div>
+      <div class="kpis" id="kpis"></div>
+    </section>
+  </aside>
+</main>
+
+<section class="wide card">
+  <h2>Knobs</h2>
+  <div class="params" id="params"></div>
+</section>
+
+<section class="wide card">
+  <h2>All provinces, same settings</h2>
+  <p class="muted small">Click a column to sort and a row to look at that province. Price-to-rent is the home price divided by one year of rent.</p>
+  <div class="table-scroll"><table class="rank" id="rank"></table></div>
+  <p class="muted small" id="missing"></p>
+</section>
+
+<section class="wide card about">
+  <h2>How it works</h2>
+  <div class="cols">
+    <div>
+      <p>Hey! After building the mortgage simulator I wanted to answer the question people actually ask first: is it even worth buying where I live? The honest answer changes a lot from one province to the next, so this uses official data for each one.</p>
+      <p>You and a twin start with the same cash. The buyer puts it into a home with a mortgage. The renter rents the same kind of home and invests that cash. Every month, whoever pays less than the other invests the difference. The chart shows what each of you would have if you sold or stopped renting after each year, and the break-even is the first year the buyer is ahead.</p>
+      <p>It's a small experiment, not financial advice. The assumptions (growth, returns, costs) are yours to change, and the answer moves a lot when you do.</p>
+      <p>For the mortgage side in detail (fixed vs variable, early repayment, Euribor history), see the <a href="https://dmcataneo.github.io/spain-mortgage-simulator/">Spain mortgage simulator</a>.</p>
+    </div>
+    <div>
+      <p><strong>Where the numbers come from.</strong></p>
+      <ul class="src">
+        <li><strong>Rent:</strong> average monthly rent of main-home leases, by province, from the tax agency's IRPF housing statistics, tax year 2024 (<a id="rentUrl" href="#">AEAT</a>). These are declared leases, so they include older contracts and usually sit below what a new listing asks.</li>
+        <li><strong>Price:</strong> average appraised value per m2 by province, from the Ministry of Housing's appraisal statistic, read through the ISTAC open data copy (<a id="priceUrl" href="#">dataset</a>). Appraisals are not sale prices. You can choose the 2024 average (same year as the rent) or the newest quarter, 2026 Q2.</li>
+        <li><strong>Size:</strong> the average size of rented homes in each province, from the same tax table. You can scale it.</li>
+      </ul>
+      <p><strong>Limits.</strong> The tax statistic does not cover Araba/Álava, Bizkaia, Gipuzkoa or Navarra, so they are not here, and no national average is used in their place. Rent is one average per province, not per town or neighbourhood. Buying costs and taxes vary by region, so they are one input. No mortgage subsidies, no tax relief, no rent control, no vacancy.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>By <a href="https://github.com/dmcataneo" rel="author">dmcataneo</a> · <a href="https://github.com/dmcataneo/spain-rent-vs-buy">Source code</a></p>
+  <p>Data retrieved 2026-11-06. Everything is calculated in your browser. Nothing is uploaded.</p>
+</footer>
+<script src="data.js"></script>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
