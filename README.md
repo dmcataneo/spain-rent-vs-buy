@@ -1,6 +1,10 @@
 # Spain: Rent vs Buy by Province
 
-Hey! After building the [mortgage simulator](https://dmcataneo.github.io/spain-mortgage-simulator/) I wanted to answer the question people ask first: is it even worth buying where I live? The honest answer changes a lot from one province to the next, so this uses official data for each one.
+> A toy for the rent vs buy question. Not financial advice.
+>
+> **Type:** side project, for fun · **Stack:** plain HTML and JS, no dependencies · **Author:** an operations person, not a developer. I build these at night, next to my day job. Nothing very serious.
+
+Another side project from my time getting into Spanish mortgages. After the [mortgage simulator](https://dmcataneo.github.io/spain-mortgage-simulator/), I wanted to answer the question people ask first: is it even worth buying where I live? The answer changes a lot from one province to the next, so this uses official data for each one.
 
 You and a twin start with the same cash. The buyer puts it into a home with a mortgage. The renter rents the same kind of home and invests that cash. Every month, whoever pays less than the other invests the difference. The chart shows what each of you would have if you sold or stopped renting after each year, and the break-even is the first year the buyer is ahead.
 
