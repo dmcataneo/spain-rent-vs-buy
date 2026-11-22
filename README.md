@@ -2,7 +2,7 @@
 
 > A toy for the rent vs buy question. Not financial advice.
 >
-> **Type:** side project, for fun · **Stack:** plain HTML and JS, no dependencies · **Author:** an operations person, not a developer. I build these at night, next to my day job. Nothing very serious.
+> **Type:** side project, for fun · **Stack:** plain HTML and JS, no dependencies · **Author:** an operations person, not a developer. I build these in my free time, next to my day job. Nothing very serious.
 
 Another side project from my time getting into Spanish mortgages. After the [mortgage simulator](https://dmcataneo.github.io/spain-mortgage-simulator/), I wanted to answer the question people ask first: is it even worth buying where I live? The answer changes a lot from one province to the next, so this uses official data for each one.
 
